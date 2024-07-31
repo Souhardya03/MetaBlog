@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="stylesheet"
+			href="<%=url%>/output.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+	</head>
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+		body {
+			font-family: "Lato", sans-serif;
+		}
+		.active {
+			color: #0432bc;
+			font-weight: 800;
+		}
+	</style>
+	<body>
+		<div
+			class="p-2 flex justify-between top-0 fixed items-center shadow-xl bg-[#f0efef] w-full">
+			<div class="w-full">
+				<img
+					src="Logo.svg"
+					class="w-1/4"
+					alt="Logo" />
+			</div>
+			<!-- Menu -->
+			<div
+				class="flex justify-around p-2 rounded-full font-medium items-center w-full">
+				<div
+					class="flex gap-1 <% if (title === 'Home') { %> active <% } %> items-center">
+					<i class="fa-solid fa-house"></i>
+					<a
+						href="/"
+						class="text-lg text-black <% if (title === 'Home') { %> active <% } %> hover:text-gray-600"
+						>Home</a
+					>
+				</div>
+				<div class="flex items-center gap-1">
+					<i class="fa-solid fa-blog"></i>
+					<a
+						href="#"
+						class="text-lg  text-black hover:text-gray-600"
+						>Blogs</a
+					>
+				</div>
+				<div
+					class="flex gap-1 <% if (title === 'Contact') { %> active <% } %> items-center">
+					<i class="fa-solid fa-phone"></i>
+					<a
+						href="/contact"
+						class="text-lg text-black  <% if (title === 'Contact') { %> active <% } %> hover:text-gray-600"
+						>Contact</a
+					>
+				</div>
+				<% if (locals.user) { %>
+				<div class="flex gap-1 items-center">
+					<i class="fa-solid fa-right-from-bracket"></i>
+					<a
+						href="/logout"
+						class="text-lg text-black  hover:text-gray-600"
+						>Logout</a
+					>
+				</div>
+				<% } %>
+			</div>
+
+			<% if (locals.user) { %>
+			<a
+				href="/createblog"
+				class="w-full flex justify-end">
+				<button class="bg-blue-600 text-white px-6 py-3 rounded-full">
+					<i class="fa-solid fa-plus"></i> Create Blog !
+				</button>
+			</a>
+			<% } else{ %>
+			<a
+				href="/auth"
+				class="w-full flex justify-end">
+				<button class="bg-blue-600 text-white px-6 py-3 rounded-full">
+					Lets Start !
+				</button>
+			</a>
+			<% }%>
+		</div>
+	</body>
+</html>
