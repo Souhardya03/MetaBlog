@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./head.ejs') %>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+    body {
+        font-family: "Lato", sans-serif;
+    }
+    .active {
+        color: #0432bc;
+        font-weight: 800;
+    }
+</style>
+<body>
+    <div class="lg:hidden bottom-0 fixed shadow-xl bg-[#d6d6d6] w-full h-[8vh]">
+        <div
+				class="flex justify-around p-2 rounded-full font-medium items-center w-full">
+				<div
+					class="flex flex-col <% if (title === 'Home') { %> active <% } %> items-center">
+					<i class="fa-solid fa-house"></i>
+					<a
+						href="/"
+						class="lg:text-lg text-sm text-black <% if (title === 'Home') { %> active <% } %> hover:text-gray-600"
+						>Home</a
+					>
+				</div>
+				<div class="flex flex-col items-center">
+					<i class="fa-solid fa-blog"></i>
+					<a
+						href="#"
+						class="lg:text-lg text-sm text-black hover:text-gray-600"
+						>Blogs</a
+					>
+				</div>
+				<div
+					class="flex flex-col <% if (title === 'Contact') { %> active <% } %> items-center">
+					<i class="fa-solid fa-phone"></i>
+					<a
+						href="/contact"
+						class="lg:text-lg text-sm text-black  <% if (title === 'Contact') { %> active <% } %> hover:text-gray-600"
+						>Contact</a
+					>
+				</div>
+				<% if (locals.user) { %>
+				<div class="flex flex-col items-center">
+					<i class="fa-solid fa-right-from-bracket"></i>
+					<a
+						href="/logout"
+						class="lg:text-lg text-sm text-black  hover:text-gray-600"
+						>Logout</a
+					>
+				</div>
+				<% } %>
+			</div>
+    </div>
+    
+</body>
+</html>
