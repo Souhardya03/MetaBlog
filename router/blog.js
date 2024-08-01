@@ -77,7 +77,12 @@ router.get("/:id", async (req, res) => {
 			.findById(blogId)
 			.populate("author", "-password");
 		if (!blog) return res.status(404).json({ message: "Blog not found" });
-		return res.status(200).json(blog);
+		return res.render("../views/blogs/blog-details.ejs", {
+			blog,
+			user: req.cookies.user,
+			title: blog.title,
+			url: req.protocol + "://" + req.headers.host,
+		});
 	} catch (error) {
 		console.log("Error from blog", error);
 	}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('../common/head.ejs') %>
+	<style>
+		pre {
+			max-width: 100%;
+			overflow: auto;
+			white-space: pre-wrap; /* Allows the text to wrap inside the pre element */
+			word-wrap: break-word; /* Breaks long words to prevent overflow */
+		}
+	</style>
+	<body>
+		<%- include('../common/nav.ejs') %>
+		<div class="flex items-center justify-center">
+			<div class="w-1/2 mt-20">
+				<div class="text-4xl font-semibold"><%- blog.title %></div>
+				<div class="mt-2 flex gap-x-6 text-sm">
+					<div class="flex items-center gap-1">
+						<div class="">
+							<i class="fa-solid fa-circle-user"></i>
+						</div>
+						<div><%- blog.author.fullName %></div>
+					</div>
+					<div class="flex items-center gap-1">
+						<div class="">
+							<i class="fa-solid fa-calendar-days"></i>
+						</div>
+						<div><%- new Date(blog.createdAt).toLocaleDateString() %></div>
+					</div>
+				</div>
+                <div class="mt-3 w-full h-[60vh]">
+                    <img src="<%- blog.thumbnail %>" class="w-full h-full rounded-md object-cover"/>
+                </div>
+				<pre>
+                    <%- blog.content %>
+                </pre
+				>
+			</div>
+		</div>
+	</body>
+</html>

@@ -15,17 +15,17 @@
 </style>
 <body class="bg-[#e4e1e1] mt-12">
     <%- include('../common/nav.ejs') %>
-    <div class="flex justify-center items-center blog flex-col flex-wrap">
+    <div class="flex justify-center items-center w-full blog flex-col flex-wrap">
         <div class="text-center text-5xl mt-10 text-cyan-600 font-semibold">
             Create <span class="text-blue-400 text-3xl font-medium">your Blog</span>
         </div>
         <div
-            class="block rounded-lg bg-[hsla(0,0%,100%,0.8)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] md:py-16 mt-[14px] backdrop-blur-[30px] w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
+            class="block rounded-lg bg-[hsla(0,0%,100%,0.8)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] md:py-16 mt-[14px] backdrop-blur-[30px] w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-2/3 lg:px-6">
             <form
                 method="post"
                 action="/api/blog/add-new"
                 enctype="multipart/form-data">
-                <div class="h-[50vh] overflow-auto">
+                <div class=" overflow-auto">
                     <div
                         class="relative mt-2 mb-6"
                         data-te-input-wrapper-init>

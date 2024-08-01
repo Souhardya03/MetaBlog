@@ -13,10 +13,10 @@
 			<div class="text-center text-4xl mt-8 text-blue-500">
 				Latest <span class="text-green-400">Posts</span>
 			</div>
-			<div class="flex flex-wrap gap-4 p-4 w-full h-full">
+			<div class="grid grid-cols-5 gap-2 px-10 p-4 w-full h-full">
 				<% blogs.forEach(blog => { %>
 				<div
-					class="border border-gray-300 overflow-hidden p-3 w-[20%] rounded-md h-[45vh]">
+					class="border border-gray-300 overflow-hidden p-3 w-full rounded-md h-[45vh]">
 					<div class="rounded-md w-full h-[25vh]">
 						<img
 							src="<%=blog.thumbnail%>"
@@ -30,9 +30,17 @@
 						</a>
 					</div>
 					<div class="text-xs flex justify-between mt-2">
-						<div><%= blog.author.fullName %></div>
-						<div>
-							<%= new Date(blog.author.createdAt).toLocaleDateString() %>
+						<div class="flex items-center gap-1">
+							<div class="">
+								<i class="fa-solid fa-circle-user"></i>
+							</div>
+							<div><%- blog.author.fullName %></div>
+						</div>
+						<div class="flex items-center gap-1">
+							<div class="">
+								<i class="fa-solid fa-calendar-days"></i>
+							</div>
+							<div><%- new Date(blog.createdAt).toLocaleDateString() %></div>
 						</div>
 					</div>
 				</div>
